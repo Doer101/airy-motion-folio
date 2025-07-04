@@ -2,39 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Portfolio Design System - Soft, modern aesthetic with muted blues, warm grays, and lavender tones.
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors - soft, warm neutrals */
+    --background: 220 20% 98%;
+    --foreground: 225 15% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card surfaces with subtle elevation */
+    --card: 220 25% 97%;
+    --card-foreground: 225 15% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Popover styling */
+    --popover: 220 25% 97%;
+    --popover-foreground: 225 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - soft muted blue */
+    --primary: 220 40% 55%;
+    --primary-foreground: 220 25% 97%;
+    --primary-glow: 220 50% 75%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - warm lavender */
+    --secondary: 250 35% 85%;
+    --secondary-foreground: 225 15% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted surfaces */
+    --muted: 220 15% 92%;
+    --muted-foreground: 225 10% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - soft lavender */
+    --accent: 250 40% 90%;
+    --accent-foreground: 225 15% 25%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive states */
+    --destructive: 0 65% 65%;
+    --destructive-foreground: 220 25% 97%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders and inputs */
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 220 40% 55%;
+
+    /* Portfolio-specific colors */
+    --hero-gradient-start: 220 40% 55%;
+    --hero-gradient-end: 250 35% 65%;
+    --skill-card-bg: 220 25% 96%;
+    --project-card-bg: 220 20% 97%;
+    
+    /* Shadows and effects */
+    --shadow-soft: 220 25% 85%;
+    --shadow-medium: 220 20% 75%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--hero-gradient-start)), hsl(var(--hero-gradient-end)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--skill-card-bg)));
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 
@@ -56,33 +84,48 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode - deep blues with warm highlights */
+    --background: 225 25% 8%;
+    --foreground: 220 20% 92%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 225 20% 12%;
+    --card-foreground: 220 20% 92%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 225 20% 12%;
+    --popover-foreground: 220 20% 92%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 220 50% 70%;
+    --primary-foreground: 225 25% 8%;
+    --primary-glow: 220 60% 80%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 225 15% 18%;
+    --secondary-foreground: 220 20% 92%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 225 15% 15%;
+    --muted-foreground: 220 10% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 250 40% 25%;
+    --accent-foreground: 220 20% 92%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 220 20% 92%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 225 15% 20%;
+    --input: 225 15% 20%;
+    --ring: 220 50% 70%;
+
+    /* Dark mode specific colors */
+    --hero-gradient-start: 220 50% 45%;
+    --hero-gradient-end: 250 40% 55%;
+    --skill-card-bg: 225 20% 14%;
+    --project-card-bg: 225 15% 16%;
+    
+    --shadow-soft: 225 25% 5%;
+    --shadow-medium: 225 30% 3%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(var(--hero-gradient-start)), hsl(var(--hero-gradient-end)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--skill-card-bg)));
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +143,44 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Portfolio-specific component styles */
+  .hero-gradient {
+    background: var(--gradient-primary);
+  }
+  
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+  
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .shadow-soft {
+    box-shadow: 0 4px 20px -4px hsl(var(--shadow-soft) / 0.3);
+  }
+  
+  .shadow-medium {
+    box-shadow: 0 8px 30px -8px hsl(var(--shadow-medium) / 0.4);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
   }
 }
