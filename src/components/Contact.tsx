@@ -28,7 +28,7 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -89,10 +89,10 @@ const Contact = () => {
             <Card className="p-8 card-gradient shadow-soft border-0">
               <h3 className="text-2xl font-bold mb-6 text-gradient">Send a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="firstName">First Name</Label>
-                    <Input 
+                    <Input
                       id="firstName"
                       placeholder="John"
                       className="transition-smooth focus:shadow-soft"

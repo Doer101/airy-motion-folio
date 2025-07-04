@@ -56,12 +56,10 @@ const Navbar = () => {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => {
-                // Simple mobile menu toggle could be added here
-                console.log('Mobile menu toggle');
-              }}
+              onClick={() => scrollToSection('contact')}
+              className="text-sm"
             >
-              Menu
+              Contact
             </Button>
           </div>
         </div>

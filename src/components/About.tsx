@@ -29,7 +29,7 @@ const About = () => {
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="relative w-80 h-80 mx-auto lg:mx-0 mb-8"
+              className="relative w-64 h-64 sm:w-80 sm:h-80 mx-auto lg:mx-0 mb-8"
             >
               <img
                 src={avatar}
