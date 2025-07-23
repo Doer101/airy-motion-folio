@@ -9,7 +9,7 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Base colors - soft, warm neutrals */
-    --background: 220 20% 98%;
+    --background: 0 0% 0%; /* changed from 220 20% 98% to black */
     --foreground: 225 15% 15%;
 
     /* Card surfaces with subtle elevation */
@@ -51,15 +51,23 @@ All colors MUST be HSL.
     --hero-gradient-end: 250 35% 65%;
     --skill-card-bg: 220 25% 96%;
     --project-card-bg: 220 20% 97%;
-    
+
     /* Shadows and effects */
     --shadow-soft: 220 25% 85%;
     --shadow-medium: 220 20% 75%;
-    
+
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--hero-gradient-start)), hsl(var(--hero-gradient-end)));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--skill-card-bg)));
-    
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(var(--hero-gradient-start)),
+      hsl(var(--hero-gradient-end))
+    );
+    --gradient-card: linear-gradient(
+      145deg,
+      hsl(var(--card)),
+      hsl(var(--skill-card-bg))
+    );
+
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -119,12 +127,20 @@ All colors MUST be HSL.
     --hero-gradient-end: 250 40% 55%;
     --skill-card-bg: 225 20% 14%;
     --project-card-bg: 225 15% 16%;
-    
+
     --shadow-soft: 225 25% 5%;
     --shadow-medium: 225 30% 3%;
-    
-    --gradient-primary: linear-gradient(135deg, hsl(var(--hero-gradient-start)), hsl(var(--hero-gradient-end)));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--skill-card-bg)));
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(var(--hero-gradient-start)),
+      hsl(var(--hero-gradient-end))
+    );
+    --gradient-card: linear-gradient(
+      145deg,
+      hsl(var(--card)),
+      hsl(var(--skill-card-bg))
+    );
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -156,30 +172,30 @@ All colors MUST be HSL.
   .hero-gradient {
     background: var(--gradient-primary);
   }
-  
+
   .card-gradient {
     background: var(--gradient-card);
   }
-  
+
   .text-gradient {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   .shadow-soft {
     box-shadow: 0 4px 20px -4px hsl(var(--shadow-soft) / 0.3);
   }
-  
+
   .shadow-medium {
     box-shadow: 0 8px 30px -8px hsl(var(--shadow-medium) / 0.4);
   }
-  
+
   .transition-smooth {
     transition: var(--transition-smooth);
   }
-  
+
   .transition-bounce {
     transition: var(--transition-bounce);
   }

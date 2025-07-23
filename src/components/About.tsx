@@ -1,76 +1,95 @@
-import { motion } from 'framer-motion';
-import { Card } from '@/components/ui/card';
-import avatar from '@/assets/avatar.jpg';
+import { motion } from "framer-motion";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import avatar from "@/assets/avatar.jpg";
+import MagnetLines from "./MagnetLines";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section
+      id="about"
+      className="py-20 bg-black text-white relative overflow-hidden"
+    >
+      <div className="container mx-auto px-4 flex flex-col items-center relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-12 w-full max-w-xl text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">About Me</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Passionate developer with a keen eye for design and user experience
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight text-white">
+            About Me
+          </h2>
+          <p className="text-lg text-gray-200 font-light">
+            Minimalist developer focused on clarity, simplicity, and smooth user
+            experiences.
           </p>
         </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        {/* Two-column layout starts here */}
+        <div className="w-full max-w-4xl flex flex-col md:flex-row gap-8 md:gap-16 items-center justify-center">
+          {/* Left: MagnetLines */}
+          <div className="flex-1 flex justify-center items-center">
+            <MagnetLines
+              rows={9}
+              columns={9}
+              containerSize="54vmin" // 10% smaller than 60vmin
+              lineColor="#efefef"
+              lineWidth="0.8vmin"
+              lineHeight="5vmin"
+              baseAngle={-10}
+              style={{ margin: "2rem auto", transform: "rotate(-8deg)" }}
+            />
+          </div>
+          {/* Right: Card */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
             viewport={{ once: true }}
-            className="text-center lg:text-left"
+            className="flex-1 w-full max-w-xl"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="relative w-64 h-64 sm:w-80 sm:h-80 mx-auto lg:mx-0 mb-8"
-            >
-              <img
-                src={avatar}
-                alt="Alex Johnson"
-                className="w-full h-full object-cover rounded-2xl shadow-medium"
-              />
-              <div className="absolute inset-0 hero-gradient opacity-10 rounded-2xl"></div>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <Card className="p-8 card-gradient shadow-soft border-0">
-              <h3 className="text-2xl font-bold mb-4 text-gradient">My Story</h3>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                With over 5 years of experience in web development, I specialize in creating 
-                modern, responsive applications using React, TypeScript, and Node.js. 
-                My journey began with a Computer Science degree and evolved through 
-                hands-on experience building products that users love.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                I believe in writing clean, maintainable code and creating intuitive user 
-                interfaces. When I'm not coding, you'll find me exploring new technologies, 
-                contributing to open source projects, or enjoying the great outdoors.
-              </p>
-              
-              <div className="grid grid-cols-2 gap-4 mt-8">
-                <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">50+</div>
-                  <div className="text-sm text-muted-foreground">Projects</div>
+            <Card className="border-0 bg-black shadow-2xl shadow-white/10">
+              <CardHeader className="flex flex-col items-center gap-4 p-8 pb-0">
+                <motion.div
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="flex flex-col items-center"
+                >
+                  <Avatar className="w-28 h-28 mb-4 grayscale border border-white/10 shadow-md">
+                    <AvatarImage
+                      src={avatar}
+                      alt="Avatar"
+                      className="object-cover grayscale"
+                    />
+                    <AvatarFallback>?</AvatarFallback>
+                  </Avatar>
+                  <CardTitle className="text-2xl font-semibold text-white">
+                    Alex Johnson
+                  </CardTitle>
+                </motion.div>
+              </CardHeader>
+              <CardContent className="flex flex-col items-center gap-6 p-8 pt-4">
+                <p className="text-base text-gray-200 text-center max-w-md">
+                  I build clean, maintainable web apps with a focus on user
+                  experience and performance. I believe less is more—minimal
+                  interfaces, clear typography, and subtle motion.
+                </p>
+                <div className="flex gap-8 justify-center mt-2">
+                  <div className="text-center">
+                    <div className="text-xl font-bold text-white">50+</div>
+                    <div className="text-xs text-gray-400 uppercase tracking-widest">
+                      Projects
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-xl font-bold text-white">5+</div>
+                    <div className="text-xs text-gray-400 uppercase tracking-widest">
+                      Years
+                    </div>
+                  </div>
                 </div>
-                <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">5+</div>
-                  <div className="text-sm text-muted-foreground">Years Experience</div>
-                </div>
-              </div>
+              </CardContent>
             </Card>
           </motion.div>
         </div>
