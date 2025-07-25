@@ -54,7 +54,7 @@ const Navbar = () => {
                 WebkitTextFillColor: "initial",
               }}
             >
-              <span className="relative z-10">Contact</span>
+              <span className="relative text-white hover:text-black z-10">Contact</span>
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full group-focus:w-full z-0"></span>
             </Button>
           </div>

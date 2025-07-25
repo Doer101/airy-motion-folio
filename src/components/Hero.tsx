@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
+import avatar from "@/assets/avatar.jpg";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -13,7 +14,8 @@ const Hero = () => {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black"
     >
-      <div className="container mx-auto px-4 text-center relative z-10">
+      <div className="container mx-auto px-4 relative z-10 flex flex-col-reverse lg:flex-row items-center lg:items-center justify-between gap-8 lg:gap-0">
+        {/* Left: Content */}
         <motion.div
           initial="hidden"
           animate="visible"
@@ -25,7 +27,7 @@ const Hero = () => {
               },
             },
           }}
-          className="max-w-4xl mx-auto"
+          className="w-full lg:w-1/2 text-center lg:text-left"
         >
           <motion.h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white"
@@ -46,7 +48,7 @@ const Hero = () => {
           </motion.h2>
 
           <motion.p
-            className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto px-4 sm:px-0 text-gray-300"
+            className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto lg:mx-0 px-4 sm:px-0 text-gray-300"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -57,7 +59,7 @@ const Hero = () => {
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4 sm:px-0"
+            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center px-4 sm:px-0"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -90,8 +92,19 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
+        {/* Right: Image */}
+        <div className="w-full lg:w-1/2 flex justify-center items-center mb-8 lg:mb-0">
+          <img
+            src={avatar}
+            alt="Web Developer"
+            className="w-56 h-56 sm:w-72 sm:h-72 lg:w-[28rem] lg:h-[28rem] object-cover rounded-full shadow-2xl border-4 border-white/10 bg-white/5 opacity-90 lg:opacity-80 pointer-events-none select-none transition-all duration-500"
+            style={{ filter: "grayscale(20%) blur(0.5px)" }}
+          />
+        </div>
+
+        {/* Down Arrow (absolute, always at bottom center) */}
         <motion.div
-          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
