@@ -21,7 +21,7 @@ const projects = [
     image: project1,
     technologies: ["React", "TypeScript", "Node.js", "MongoDB", "Stripe"],
     github: "https://github.com",
-    demo: "https://cortinexwebstudio.com",
+    demo: "https://cortinex-webstudio.com",
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const projects = [
     image: project2,
     technologies: ["React", "Socket.io", "Express", "PostgreSQL", "Tailwind"],
     github: "https://github.com",
-    demo: "https://cortinexwebstudio.com",
+    demo: "https://cortinex-webstudio.com",
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ const projects = [
     image: project3,
     technologies: ["React", "D3.js", "Weather API", "Geolocation", "PWA"],
     github: "https://github.com",
-    demo: "https://cortinexwebstudio.com",
+    demo: "https://cortinex-webstudio.com",
   },
 ];
 
